@@ -2,8 +2,11 @@
   <Button @click="toggle">toggle</Button>
   <!-- <Dialog v-model:visible="x" @update:visible="x = $event"></Dialog> -->  <!--这是下一行的全写-->
   <Dialog v-model:visible="x" :closeOnclickOverlay="false" :ok="f1" :cancel="f2">
+    <p>第一行字2131</p>
+    <strong> 内容</strong>
     <template v-slot:content>
-      <h1>22323</h1>
+      <h1></h1>
+      
       <strog>hhhhhh</strog>
     </template>
     <template v-slot:title>
