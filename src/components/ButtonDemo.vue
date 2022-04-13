@@ -57,6 +57,7 @@
 </template>
 <script lang="ts">
 import Button from "../lib/Button.vue";
+// inheritAttrs:false; // 不让它继承外部元素
 export default {
   components: { Button },
   setup() {
