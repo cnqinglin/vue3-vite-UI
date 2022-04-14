@@ -1,7 +1,7 @@
 <template>
     <template v-if="visible">
       <teleport to="body">
-        <div class="gulu-dialog-overlay" @click="onClickOVeray"></div>
+        <div class="gulu-dialog-overlay" @click="onClickOVerlay"></div>
         <div class="gulu-dialog-wrapper">
         <div class="gulu-dialog">
             <header>
@@ -47,7 +47,7 @@ export default {
       const close = () => {
           context.emit('update:visible',false)
       }
-      const onClickOVeray = () => {
+      const onClickOVerlay = () => {
         if(props.closeOnclickOverlay){
           close()
         }
@@ -60,12 +60,13 @@ export default {
         }
       } 
       const cancel = () => {
-        //   context.emit('update:cancel',false)
-        props.cancel()
+        if(props.cancel?.() !== false){
+          close()
+        }
       }
       return {
           close,
-          onClickOVeray,
+          onClickOVerlay,
           ok,
           cancel
       }
