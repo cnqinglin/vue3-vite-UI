@@ -1,19 +1,19 @@
 <template>
-  <Tabs>
-    <Tab title="导航一">内容一</Tab>
-    <Tab title="导航二">内容二</Tab>
-  </Tabs>
+<div>Tabs 示例</div>
+<h1>示例1</h1>
+<Tabs selected="导航1">
+  <Tab title="导航1">内容1</Tab>
+  <Tab title="导航2">内容2</Tab>
+</Tabs>
 </template>
+
 <script lang="ts">
-import Tabs from '../lib/tabs.vue';
-import Tab from '../lib/tab.vue';
-export default{
-  components:{
+import Tabs from '../lib/Tabs.vue'
+import Tab from '../lib/Tab.vue'
+export default {
+  components: {
     Tabs,
     Tab
-  },
-  setup() {
-    
-  },
+  }
 }
 </script>
