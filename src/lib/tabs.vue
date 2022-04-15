@@ -1,17 +1,24 @@
 <template>
 <div class="gulu-tabs">
   <div class="gulu-tabs-nav">
-    <div class="gulu-tabs-nav-item"
+    <div class="gulu-tabs-nav-item" @click="select(t)"
     :class="{selected : t === selected}"
      v-for="(t,index) in titles" :key="index">{{t}}</div>
   </div>
   <div class="gulu-tabs-content">
-    <component class="gulu-tabs-content-item" v-for="(c,index) in defaults" :is="c" :key="index" />
+    <component 
+      class="gulu-tabs-content-item" 
+      v-for="c in defaults" 
+      :is="c" 
+      :key="c.props.title"
+      :class="{selected:c.props.title === selected}" 
+    />
   </div>
 </div>
 </template>
 
 <script lang="ts">
+import {computed} from 'vue';
 import Tab from './Tab.vue'
 export default {
     props:{
@@ -19,20 +26,30 @@ export default {
             type:String
         }
     },
+    // setup只会在页面挂载的时候执行一遍，之后不会再执行
   setup(props, context) {
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
-        console.log('selected',selected)
       if (tag.type !== Tab) {
         throw new Error('Tabs 子标签必须是 Tab')
       }
     })
+    const current = computed(() => {
+      defaults.filter((tag) => {
+        return tag.props.title === props.selected
+      })[0]
+    })
     const titles = defaults.map((tag) => {
       return tag.props.title
     })
+    const select = (title:String) => {
+      context.emit('update:selected',title)
+    }
     return {
       defaults,
-      titles
+      titles,
+      current,
+      select
     }
   }
 }
@@ -66,6 +83,12 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 8px 0;
+    &-item {
+      display:none;
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
