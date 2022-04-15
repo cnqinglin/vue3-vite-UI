@@ -35,7 +35,7 @@ export default {
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    const x = () => {
+    const updateWidth = () => {
       const divs = navItems.value;
         const result = divs.filter(div => div.classList.contains('selected'))[0]
         const {width } = result.getBoundingClientRect();
@@ -46,8 +46,8 @@ export default {
         indicator.value.style.left = left + 'px'
     }
     // 每次挂载之后执行
-    onMounted(x);
-    onUpdated(x);
+    onMounted(updateWidth);
+    onUpdated(updateWidth);
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
