@@ -44,7 +44,7 @@ export default {
         const {left:left2} = result.getBoundingClientRect();
         const left = left2 - left1;
         indicator.value.style.left = left + 'px'
-    }
+    }  
     // 每次挂载之后执行
     onMounted(updateWidth);
     onUpdated(updateWidth);
@@ -110,6 +110,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 250ms;
     }
   }
 
