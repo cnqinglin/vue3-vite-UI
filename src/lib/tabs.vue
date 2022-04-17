@@ -9,19 +9,20 @@
      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
   </div>
   <div class="gulu-tabs-content">
-    <component 
+    <!-- <component 
       class="gulu-tabs-content-item" 
       v-for="c in defaults" 
       :is="c" 
       :key="c.props.title"
       :class="{selected:c.props.title === selected}" 
-    />
+    /> -->
+    <component :is="current" :key="current.prosp.title"></component> 
   </div>
 </div>
 </template>
 
 <script lang="ts">
-import { ref, watchEffect} from 'vue';
+import { computed,onMounted, ref, watchEffect} from 'vue';
 import Tab from './Tab.vue'
 export default {
     props:{
@@ -51,9 +52,13 @@ export default {
     }  
     // 每次挂载之后执行
     // onMounted(x);
-    // 挂载之后，每次有变化就会执行
+    // 挂载之后，每次更新就会执行
     // onUpdated(x);
-    watchEffect(x)   // 优化上两行代码
+    // 但是watchEffect会在挂在之前执行。
+    
+    onMounted(()=> {
+      watchEffect(x)   // 优化上两行代码
+    })
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -66,6 +71,9 @@ export default {
     const select = (title:String) => {
       context.emit('update:selected',title)
     }
+    const current  = computed(() => { 
+      return defaults.find(item => item.props.selected === props.selected)
+    })
     return {
       defaults,
       titles,
@@ -73,7 +81,8 @@ export default {
       // navItems,
       selectedItem,
       indicator,
-      container
+      container,
+      current
     }
   }
 }
@@ -112,16 +121,6 @@ $border-color: #d9d9d9;
       bottom: -1px;
       width: 100px;
       transition: all 250ms;
-    }
-  }
-
-  &-content { 
-    padding: 8px 0;
-    &-item {
-      display:none;
-      &.selected {
-        display: block;
-      }
     }
   }
 }
