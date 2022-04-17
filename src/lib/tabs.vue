@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import {computed, onMounted, onUpdated, ref} from 'vue';
+import { ref, watchEffect} from 'vue';
 import Tab from './Tab.vue'
 export default {
     props:{
@@ -37,7 +37,7 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    const updateWidth = () => {
+    const x = () => {
       // const divs = navItems.value;
         // const result = divs.filter(div => div.classList.contains('selected'))[0]
         // const {width } = result.getBoundingClientRect(); // 获取当前元素宽度
@@ -50,18 +50,15 @@ export default {
         indicator.value.style.left = left + 'px'  // 给indicaor 设置对应的左侧的其实dian
     }  
     // 每次挂载之后执行
-    onMounted(updateWidth);
-    onUpdated(updateWidth);
+    // onMounted(x);
+    // 挂载之后，每次有变化就会执行
+    // onUpdated(x);
+    watchEffect(x)   // 优化上两行代码
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs 子标签必须是 Tab')
       }
-    })
-    const current = computed(() => {
-      defaults.filter((tag) => {
-        return tag.props.title === props.selected
-      })[0]
     })
     const titles = defaults.map((tag) => {
       return tag.props.title
@@ -72,7 +69,6 @@ export default {
     return {
       defaults,
       titles,
-      current,
       select,
       // navItems,
       selectedItem,
