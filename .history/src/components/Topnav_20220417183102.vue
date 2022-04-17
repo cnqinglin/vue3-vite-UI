@@ -46,7 +46,6 @@ $text-color:#18a19a;
   display: flex;
   padding: 16px;
   position: fixed;
-  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;
@@ -72,7 +71,7 @@ $text-color:#18a19a;
   > .toggleAside {
     width: 24px;
     height: 24px;
-    background: fade-out(black, 0.9);
+    // background: red;
     position: absolute;
     left: 16px;
     top: 50%;

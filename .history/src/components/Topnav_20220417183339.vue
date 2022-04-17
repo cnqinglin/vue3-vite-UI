@@ -46,7 +46,6 @@ $text-color:#18a19a;
   display: flex;
   padding: 16px;
   position: fixed;
-  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;

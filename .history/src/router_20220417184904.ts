@@ -9,8 +9,7 @@ import DocDemo from "./components/DocDemo.vue";
 
 import Intro from "./views/intro.vue";
 import Install from "./views/install.vue";
-import Use from "./views/use.vue";
-
+import Use from "./views/se.vue";
 const history = createWebHashHistory();
 export const router = createRouter({
   history: history,

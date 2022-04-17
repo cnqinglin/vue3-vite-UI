@@ -1,6 +1,6 @@
 <template>
   <div class="topnav">
-    <router-link to="/" class="logo">
+    <router-link to=/"" class="logo">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-vue3-UI"></use>
     </svg>  
@@ -9,7 +9,7 @@
       <router-link to="/doc">文档</router-link>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-      <use xlink:href="#icon-menu"></use>
+      <use></use>
     </svg>
   </div>
 </template>
@@ -46,7 +46,6 @@ $text-color:#18a19a;
   display: flex;
   padding: 16px;
   position: fixed;
-  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;
@@ -72,7 +71,7 @@ $text-color:#18a19a;
   > .toggleAside {
     width: 24px;
     height: 24px;
-    background: fade-out(black, 0.9);
+    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
