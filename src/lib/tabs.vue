@@ -4,7 +4,7 @@
     <div class="gulu-tabs-nav-item" @click="select(t)"
     :class="{selected : t === selected}"
      v-for="(t,index) in titles" 
-     :ref="el => {if(el) navItems[index] = el}"
+     :ref="el => {if(t === selected) selectedItem = el}"
      :key="index">{{t}}</div>
      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
   </div>
@@ -32,18 +32,22 @@ export default {
     // setup只会在页面挂载的时候执行一遍，之后不会再执行
   setup(props, context) {
 
-    const navItems = ref<HTMLDivElement[]>([]);
+    // 优化 navItems，使用selectedItem
+    // const navItems = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     const updateWidth = () => {
-      const divs = navItems.value;
-        const result = divs.filter(div => div.classList.contains('selected'))[0]
-        const {width } = result.getBoundingClientRect();
-        indicator.value.style.width = width + 'px';
-        const {left:left1} = container.value.getBoundingClientRect();
-        const {left:left2} = result.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + 'px'
+      // const divs = navItems.value;
+        // const result = divs.filter(div => div.classList.contains('selected'))[0]
+        // const {width } = result.getBoundingClientRect(); // 获取当前元素宽度
+        const {width} = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';  // 给indicator设置宽度
+        const {left:left1} = container.value.getBoundingClientRect();  // 获取container左侧的起始位置
+        // const {left:left2} = result.getBoundingClientRect();  // 获取当前元距离左侧的起始位置
+        const {left:left2} = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;   // 宽度计算
+        indicator.value.style.left = left + 'px'  // 给indicaor 设置对应的左侧的其实dian
     }  
     // 每次挂载之后执行
     onMounted(updateWidth);
@@ -70,7 +74,8 @@ export default {
       titles,
       current,
       select,
-      navItems,
+      // navItems,
+      selectedItem,
       indicator,
       container
     }
