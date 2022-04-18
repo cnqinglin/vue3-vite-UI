@@ -53,16 +53,14 @@ export default {
         }
       }
       const ok = () => {
-        //   context.emit('update:ok',false)   // 
-        // props.ok()
-        if(props.ok?.() !== false){
-            close()
-        }
-      } 
-      const cancel = () => {
-        if(props.cancel?.() !== false){
+        // if (props.ok?.() !== false) {
           close()
-        }
+        // }
+      }
+      const cancel = () => {
+        // if(props.cancel?.() !== false){
+          close()
+        // }
       }
       return {
           close,
