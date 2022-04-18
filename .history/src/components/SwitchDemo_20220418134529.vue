@@ -31,15 +31,15 @@
 <script lang="ts">
 import Switch from '../lib/Switch.vue'
 import Button from '../lib/Button.vue'
-// import Switch2Demo from './switch2Demo.vue';
-import switch1Demo from './switch1Demo.vue'
+import Switch1Demo from './Switch1.demo.vue'
+import Switch2Demo from './Switch2.demo.vue'
 import {
   ref
 } from 'vue'
 export default {
   components: {
-    // Switch1Demo,
-    // Switch2Demo,
+    Switch1Demo,
+    Switch2Demo,
     Switch,
     Button
   },
