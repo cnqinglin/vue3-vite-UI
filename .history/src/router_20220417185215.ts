@@ -6,15 +6,12 @@ import ButtonDemo from "./components/ButtonDemo.vue";
 import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
 import DocDemo from "./components/DocDemo.vue";
-import { h } from "vue";
-import Markdown from './components/markdown.vue'
+
+import Intro from "./views/intro.vue";
+import Install from "./views/install.vue";
+import Use from "./views/use.vue";
 
 const history = createWebHashHistory();
-
-const x = path => {
-  return h(Markdown,{'path':`../markdown/${path}.md`,key:Math.random()})
-}
-
 export const router = createRouter({
   history: history,
   routes: [
@@ -24,9 +21,9 @@ export const router = createRouter({
       component: Doc,
       children: [
         { path: "", component: DocDemo },
-        { path: "intro", component: x('intro')},
-        { path: "install", component:x('install') },
-        { path: "use", component: x('use')},
+        { path: "intro", component: Intro },
+        { path: "install", component: Install },
+        { path: "use", component: Use },
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },

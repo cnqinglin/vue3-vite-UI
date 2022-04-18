@@ -10,11 +10,6 @@ import { h } from "vue";
 import Markdown from './components/markdown.vue'
 
 const history = createWebHashHistory();
-
-const x = path => {
-  return h(Markdown,{'path':`../markdown/${path}.md`,key:Math.random()})
-}
-
 export const router = createRouter({
   history: history,
   routes: [
@@ -24,9 +19,9 @@ export const router = createRouter({
       component: Doc,
       children: [
         { path: "", component: DocDemo },
-        { path: "intro", component: x('intro')},
-        { path: "install", component:x('install') },
-        { path: "use", component: x('use')},
+        { path: "intro", component: h(Markdown,{path:'../markdown/intro.md',key:'1'}) },
+        { path: "install", component: h(Markdown,{path:'../markdown/install.md',key:'2'}) },
+        { path: "use", component: h(Markdown,{path:'../markdown/use.md',key:'3'}) },
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },

@@ -25,8 +25,8 @@ export const router = createRouter({
       children: [
         { path: "", component: DocDemo },
         { path: "intro", component: x('intro')},
-        { path: "install", component:x('install') },
-        { path: "use", component: x('use')},
+        { path: "install", component: h(Markdown,{path:'../markdown/install.md',key:'2'}) },
+        { path: "use", component: h(Markdown,{path:'../markdown/use.md',key:'3'}) },
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },
