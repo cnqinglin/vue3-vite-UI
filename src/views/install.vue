@@ -1,14 +1,3 @@
 <template>
-    <article class="markdown-body" v-html="markdown">
-    </article>
+    <Markdown path="../markdown/install.md"></Markdown>
 </template>
-<script lang="js">
-import md from '../markdown/install.md';
-import {ref} from 'vue';
-export default{
-    setup(){    
-         const markdown = ref(md)
-        return {markdown}
-    }
-}
-</script>
