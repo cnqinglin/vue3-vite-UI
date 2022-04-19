@@ -7,6 +7,8 @@
 </template>
 
 <script lang="ts">
+import Switch from '../lib/Switch.vue'
+import Button from '../lib/Button.vue'
 import Switch1Demo from './switch1Demo.vue'
 import Switch2Demo from './switch2Demo.vue';
 import Demo from './demo.vue';
@@ -16,12 +18,16 @@ import {
 } from 'vue'
 export default {
   components: {
+    // Switch1Demo,
+    // Switch2Demo,
+    Switch,
+    Button,
     Demo
   },
   setup() {
     const bool = ref(false)
     return {
-      Switch1Demo,Switch2Demo
+      bool,Switch1Demo,Switch2Demo
     }
   }
 }

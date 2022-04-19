@@ -21,6 +21,9 @@ export default{
     },
     setup(){
         const visible = ref(false);
+        const controlVisible = () => {
+
+        }
         return {
             visible
         }

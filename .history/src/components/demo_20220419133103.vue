@@ -1,32 +1,27 @@
 <template>
-<div>
-  <h1>Switch 组件示例 </h1>
-  <Demo :component="Switch1Demo" />
-  <Demo :component="Switch2Demo" />
-</div>
+    <div class="demo">
+    <h2>标题</h2>
+    <div class="demo-component">
+      <component :is="component" />
+    </div>
+    <div class="demo-actions">
+      <Button>查看代码</Button>
+    </div>
+    <div class="demo-code">
+      <pre>{{component.__sourceCode}}</pre>
+    </div>
+  </div>
 </template>
-
 <script lang="ts">
-import Switch1Demo from './switch1Demo.vue'
-import Switch2Demo from './switch2Demo.vue';
-import Demo from './demo.vue';
+export default{
+    props:{
+        component:Object,
+    },
+    setup(){
 
-import {
-  ref
-} from 'vue'
-export default {
-  components: {
-    Demo
-  },
-  setup() {
-    const bool = ref(false)
-    return {
-      Switch1Demo,Switch2Demo
     }
-  }
 }
 </script>
-
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
 .demo {

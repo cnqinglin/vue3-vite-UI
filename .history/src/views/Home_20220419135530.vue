@@ -78,6 +78,7 @@ $text-color:#28d1c9;
 
 .features {
   margin: 64px auto;
+  width: 400px;
   padding: 0 16px;
   @media (min-width: 800px) {
     width: 800px;
