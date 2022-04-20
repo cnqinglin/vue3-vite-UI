@@ -35,7 +35,7 @@ export default {
       watchEffect(() => {
         const {
           width
-        } = selectedItem?.value.getBoundingClientRect()
+        } = selectedItem.value.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
         const {
           left: left1

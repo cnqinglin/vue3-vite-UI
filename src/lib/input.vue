@@ -23,7 +23,6 @@ import {
 //   message: string
 // }
 // type RulesProp = RuleProp[]
-
 export default {
     components: {
         Button
@@ -64,7 +63,6 @@ export default {
             } 
         }
     };
-
     const iptChange = (e) => {
       context.emit('update:modelValue',e.target.value)
     };
