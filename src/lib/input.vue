@@ -7,7 +7,7 @@
         value="modelValue" 
         @input="iptChange" />
         
-        <Button class="checkBtn" v-if="type === 'email'" size="normal" @click="validateInput" level="main">主要按钮</Button>
+        <Button class="checkBtn" v-if="type === 'email'" @click="validateInput">输入框校验</Button>
         <div v-if="ispassed === false" ref="errContent" class="errMsg">{{errMessage}}</div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
             passed.value = emailReg.test(props.modelValue)
             ispassed.value = passed.value
             if(ispassed.value === false){
-                errMessage.value = '输入格式不正确'
+                errMessage.value = '请输入正确的邮箱地址'
             } 
         }
     };

@@ -3,11 +3,11 @@
   <div class="topnavAndBanner">
     <Topnav />
     <div class="banner">
-      <h1>轱辘UI</h1>
-      <h2>一个厉害的 UI 框架</h2>
+      <h1>欢迎使用</h1>
+      <h2>前端 UI 框架</h2>
       <p class="actions">
         <a href="https://github.com">GitHub</a>
-        <router-link to="/doc">开始</router-link>
+        <router-link to="/doc">Get Started</router-link>
       </p>
     </div>
   </div>
@@ -18,21 +18,21 @@
           <use xlink:href="#icon-vue"></use>
         </svg>
         <h3>基于 Vue 3</h3>
-        <p>骄傲地使用了 Vue 3 Composition API</p>
+        <p>使用Vue3封装常用组件</p>
       </li>
       <li>
         <svg>
           <use xlink:href="#icon-ts"></use>
         </svg>
         <h3>基于 TypeScript </h3>
-        <p>源代码采用 TypeScript 书写</p>
+        <p>使用TypeScript书写逻辑</p>
       </li>
       <li>
         <svg>
-          <use xlink:href="#icon-light"></use>
+          <use xlink:href="#icon-vite"></use>
         </svg>
-        <h3>代码易读</h3>
-        <p>每个组件的源代码都极其简洁</p>
+        <h3>使用Vite搭建框架</h3>
+        <p>下一代前端开发与构建工具</p>
       </li>
     </ul>
   </div>
