@@ -3,7 +3,7 @@
   <div class="gulu-tabs-nav" ref="container">
     <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" 
       :ref="el => { if (t===selected) selectedItem = el}"
-      @click="select(t)" :class="{selected: t=== selected, disbled:disbled}"
+      @click="select(t)" :class="{selected: t=== selected}"
       :key="index">{{t}}</div>
     <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
   </div>
@@ -25,13 +25,11 @@ export default {
   props: {
     selected: {
       type: String
-    },
-    disabled:{
-      type:Boolean
     }
   },
   setup(props, context) {
-    console.log('props.disabled',props)
+    console.log('props.selected',props.selected);
+     console.log('props.disabled',props.selected);
     const selectedItem = ref < HTMLDivElement > (null)
     const indicator = ref < HTMLDivElement > (null)
     const container = ref < HTMLDivElement > (null)

@@ -1,19 +1,24 @@
 <demo>
-    支持disabled
+支持 disabled
 </demo>
 <template>
-   <Switch v-model:value="bool"/>
+<Switch v-model:value="bool" disabled />
 </template>
+
 <script lang="ts">
-import { ref } from '@vue/reactivity'
 import Switch from '../lib/Switch.vue'
-export default{
-    components:{
-        Switch
-    },
-    setup(){
-        const bool = ref(false)
-        return {bool}
+import {
+  ref
+} from 'vue'
+export default {
+  components: {
+    Switch,
+  },
+  setup() {
+    const bool = ref(false)
+    return {
+      bool
     }
+  }
 }
 </script>

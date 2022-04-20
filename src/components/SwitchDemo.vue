@@ -3,14 +3,15 @@
   <h1>Switch 组件示例 </h1>
   <Demo :component="Switch1Demo" />
   <Demo :component="Switch2Demo" />
+  <Demo :component="Switch3Demo" />
 </div>
 </template>
 
 <script lang="ts">
-import Switch1Demo from './switch1Demo.vue'
-import Switch2Demo from './switch2Demo.vue';
-import Demo from './demo.vue';
-
+import Switch1Demo from './Switch1Demo.vue'
+import Switch2Demo from './Switch2Demo.vue'
+import Switch3Demo from './Switch3Demo.vue'
+import Demo from './Demo.vue'
 import {
   ref
 } from 'vue'
@@ -19,9 +20,10 @@ export default {
     Demo
   },
   setup() {
-    const bool = ref(false)
     return {
-      Switch1Demo,Switch2Demo
+      Switch1Demo,
+      Switch2Demo,
+      Switch3Demo
     }
   }
 }
