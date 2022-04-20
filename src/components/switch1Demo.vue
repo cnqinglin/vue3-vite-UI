@@ -12,7 +12,7 @@ export default{
         Switch
     },
     setup(){
-        const bool = ref(false)
+        const bool = ref(true)
         return {bool}
     }
 }
