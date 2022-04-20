@@ -28,8 +28,6 @@ export default {
     }
   },
   setup(props, context) {
-    console.log('props.selected',props.selected);
-     console.log('props.disabled',props.selected);
     const selectedItem = ref < HTMLDivElement > (null)
     const indicator = ref < HTMLDivElement > (null)
     const container = ref < HTMLDivElement > (null)
