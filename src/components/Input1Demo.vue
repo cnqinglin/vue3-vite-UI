@@ -2,22 +2,25 @@
 常规使用
 </demo>
 <template>
-<Input value="input内容" />
+<Input v-model="content"/>
 </template>
 
 <script lang="ts">
 import Input from '../lib/input.vue'
 import {
-  ref
+  ref, watchEffect
 } from 'vue'
 export default {
   components: {
     Input
   },
   setup() {
-    // const x = ref('')
+    const content = ref('')
+     watchEffect (() => {
+      console.log('content.value',content.value)
+    })
     return {
-      
+      content
     }
   }
 }
