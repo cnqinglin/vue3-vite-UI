@@ -5,7 +5,8 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button @click="visible = !visible">查看代码</Button>
+      <Button v-if="visible" @click="hideCode">隐藏代码</Button>
+      <Button v-else @click="showCode">查看代码</Button>
     </div>
     <div class="demo-code" v-if="visible">
       <pre>{{component.__sourceCode}}</pre>
@@ -21,8 +22,12 @@ export default{
     },
     setup(){
         const visible = ref(false);
+        const hideCode = () => visible.value = false
+        const showCode = () => visible.value = true
         return {
-            visible
+            visible,
+            hideCode,
+            showCode
         }
     }
 }
